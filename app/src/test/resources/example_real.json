@@ -1,0 +1,1135 @@
+{
+  "metadata": {
+    "provider": "Oxford University Press"
+  },
+  "results": [
+    {
+      "id": "change",
+      "language": "en",
+      "lexicalEntries": [
+        {
+          "entries": [
+            {
+              "grammaticalFeatures": [
+                {
+                  "text": "Singular",
+                  "type": "Number"
+                }
+              ],
+              "homographNumber": "000",
+              "senses": [
+                {
+                  "examples": [
+                    {
+                      "text": "this last year has seen many changes",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "das vergangene Jahr hat viele Veränderungen [mit sich] gebracht"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "there has been a change in sb/sth",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "eine Veränderung ist in jmdm. vorgegangen/es hat bei etw. eine Änderung gegeben"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "sth undergoes a change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "etw. ändert sich"
+                        },
+                        {
+                          "language": "de",
+                          "notes": [
+                            {
+                              "text": "more profoundly",
+                              "type": "indicator"
+                            }
+                          ],
+                          "text": "etw. verändert sich"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "make changes/a change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "notes": [
+                            {
+                              "text": "to, in",
+                              "type": "prepositionNote"
+                            },
+                            {
+                              "text": "an + Dat.",
+                              "type": "prepositionNote"
+                            }
+                          ],
+                          "text": "einiges ändern/etwas verändern"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "the change [of life]",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "die Wechseljahre"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "a change of air would do her good",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "eine Luftveränderung täte ihr gut"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "there has been a change of plan",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "der Plan ist geändert worden"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "see a change in sb",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "eine Veränderung an jmdm. bemerken"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "a change in the weather",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "ein Witterungs- or Wetterumschlag"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "a change for the better/worse",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "eine Verbesserung/Verschlechterung"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "a change of heart",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "ein Sinneswandel"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "a change of scene/environment",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "ein positiver Ortswechsel"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "How is she, doctor? — No change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "Wie geht es ihr, Doktor? — Unverändert"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "make a change [of trains/buses]",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "umsteigen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "a change of drivers every four hours",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "ein Fahrerwechsel alle vier Stunden"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.002",
+                  "translations": [
+                    {
+                      "language": "de",
+                      "notes": [
+                        {
+                          "text": "of name, address, lifestyle, outlook, condition, etc.",
+                          "type": "indicator"
+                        }
+                      ],
+                      "text": "Änderung"
+                    },
+                    {
+                      "language": "de",
+                      "notes": [
+                        {
+                          "text": "of job, surroundings, government, etc.",
+                          "type": "indicator"
+                        }
+                      ],
+                      "text": "Wechsel"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "change came slowly",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "nur allmählich zeigte sich eine Veränderung"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "be for/against change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "für/gegen eine Veränderung sein"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.003",
+                  "notes": [
+                    {
+                      "text": "process of changing",
+                      "type": "indicator"
+                    },
+                    {
+                      "text": "no pl., no art.",
+                      "type": "grammaticalNote"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "Veränderung"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "[just] for a change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "registers": [
+                            "ironic"
+                          ],
+                          "text": "zur Abwechslung mal"
+                        },
+                        {
+                          "language": "de",
+                          "text": "[nur so] zur Abwechslung"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "make a change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "notes": [
+                            {
+                              "text": "als",
+                              "type": "prepositionNote"
+                            },
+                            {
+                              "text": "from",
+                              "type": "prepositionNote"
+                            },
+                            {
+                              "text": "be different",
+                              "type": "indicator"
+                            }
+                          ],
+                          "text": "mal etwas anderes sein"
+                        }
+                      ]
+                    },
+                    {
+                      "registers": [
+                        "ironic"
+                      ],
+                      "text": "that makes a change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "das ist ja [et]was ganz Neues!"
+                        }
+                      ]
+                    },
+                    {
+                      "registers": [
+                        "proverb"
+                      ],
+                      "text": "a change is as good as a rest",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "Abwechslung wirkt Wunder"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.004",
+                  "notes": [
+                    {
+                      "text": "for the sake of variety",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "Abwechslung"
+                    }
+                  ]
+                },
+                {
+                  "crossReferences": [
+                    {
+                      "id": "loose_change",
+                      "text": "loose change",
+                      "type": "related"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "text": "make change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "herausgeben"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "give sb 40p in change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "jmdm. 40p [Wechselgeld] herausgeben"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "can you give me change for 50p?",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "können Sie mir 50p wechseln?"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "[loose/small] change",
+                      "translations": [
+                        {
+                          "grammaticalFeatures": [
+                            {
+                              "text": "Neuter",
+                              "type": "Gender"
+                            }
+                          ],
+                          "language": "de",
+                          "text": "Kleingeld"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "I haven't got change for a pound",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "ich kann auf ein Pfund nicht herausgeben"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "give sb his/her change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "jmdm. das Wechselgeld [heraus]geben"
+                        }
+                      ]
+                    },
+                    {
+                      "regions": [
+                        "US"
+                      ],
+                      "text": "give change"
+                    },
+                    {
+                      "text": "[here is] 15 euros change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "15 Euro zurück"
+                        }
+                      ]
+                    },
+                    {
+                      "registers": [
+                        "figurative",
+                        "colloquial"
+                      ],
+                      "text": "get no change out of sb",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "registers": [
+                            "colloquial"
+                          ],
+                          "text": "nichts aus jmdm. rauskriegen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "[you can] keep the change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "[es] stimmt so"
+                        },
+                        {
+                          "language": "de",
+                          "text": "behalten Sie den Rest"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.005",
+                  "notes": [
+                    {
+                      "text": "no pl., no indef. art.",
+                      "type": "grammaticalNote"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "notes": [
+                        {
+                          "text": "money",
+                          "type": "indicator"
+                        }
+                      ],
+                      "text": "Wechselgeld"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "a change [of clothes]",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "notes": [
+                            {
+                              "text": "fresh clothes",
+                              "type": "indicator"
+                            }
+                          ],
+                          "text": "Kleidung zum Wechseln"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.006"
+                },
+                {
+                  "id": "b-en-de0005539.007",
+                  "notes": [
+                    {
+                      "text": "of moon",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "Mondwechsel"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "registers": [
+                        "figurative"
+                      ],
+                      "text": "ring the changes",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "für Abwechslung sorgen"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.008",
+                  "notes": [
+                    {
+                      "text": "in bellringing",
+                      "type": "indicator"
+                    },
+                    {
+                      "text": "usu. in pl.",
+                      "type": "grammaticalNote"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "domains": [
+                        "Music"
+                      ],
+                      "language": "de",
+                      "text": "Schlagtonfolge"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "language": "en",
+          "lexicalCategory": "Noun",
+          "text": "change"
+        },
+        {
+          "entries": [
+            {
+              "grammaticalFeatures": [
+                {
+                  "text": "Transitive",
+                  "type": "Subcategorization"
+                },
+                {
+                  "text": "Present",
+                  "type": "Tense"
+                }
+              ],
+              "homographNumber": "001",
+              "senses": [
+                {
+                  "crossReferences": [
+                    {
+                      "id": "gear",
+                      "text": "gear",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "side",
+                      "text": "side",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "hand",
+                      "text": "hand",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "hand",
+                      "text": "hand",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "horse",
+                      "text": "horse",
+                      "type": "see also"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "text": "change schools/one's doctor",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "die Schule/den Arzt wechseln"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change one's clothes",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "sich umziehen"
+                        },
+                        {
+                          "language": "de",
+                          "text": "seine Kleider or Kleidung wechseln"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change trains/buses",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "umsteigen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change one's address/name",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "seine Anschrift/seinen Namen ändern"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change the bed",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "das Bett frisch beziehen"
+                        },
+                        {
+                          "language": "de",
+                          "text": "die Bettwäsche wechseln"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change the baby",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "das Baby [frisch] wickeln or trockenlegen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change ownership",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "den Besitzer wechseln"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change the record",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "eine andere Platte auflegen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "he's always changing jobs",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "er wechselt ständig den Job"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change seats",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "sich woanders hinsetzen or auf einen anderen Platz setzen"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.010",
+                  "notes": [
+                    {
+                      "text": "switch",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "wechseln"
+                    },
+                    {
+                      "language": "de",
+                      "text": "auswechseln"
+                    }
+                  ]
+                },
+                {
+                  "crossReferences": [
+                    {
+                      "id": "tune",
+                      "text": "tune",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "mind",
+                      "text": "mind",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "colour",
+                      "text": "colour",
+                      "type": "see also"
+                    },
+                    {
+                      "id": "step",
+                      "text": "step",
+                      "type": "see also"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "text": "marriage changed his way of life",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "die Ehe veränderte sein Leben"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change sth/sb into sth/sb",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "etw./jmdn. in etw./jmdn. verwandeln"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change direction",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "die Richtung ändern"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "she changed him from a prince into a frog",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "sie verwandelte den Prinzen in einen Frosch"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "you won't be able to change him",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "du kannst ihn nicht ändern"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.011",
+                  "translations": [
+                    {
+                      "language": "de",
+                      "notes": [
+                        {
+                          "text": "transform",
+                          "type": "indicator"
+                        }
+                      ],
+                      "text": "verwandeln"
+                    },
+                    {
+                      "language": "de",
+                      "notes": [
+                        {
+                          "text": "alter",
+                          "type": "indicator"
+                        }
+                      ],
+                      "text": "ändern"
+                    }
+                  ]
+                },
+                {
+                  "crossReferences": [
+                    {
+                      "id": "place",
+                      "text": "place",
+                      "type": "see also"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "text": "change seats with sb",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "mit jmdm. den Platz tauschen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change sth/sb for sth/sb",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "etw./jmdn. für etw./jmdn. eintauschen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "take sth back to the shop and change it for sth",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "etw. [zum Laden zurückbringen und] gegen etw. umtauschen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change seats",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "die Plätze tauschen"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.012",
+                  "notes": [
+                    {
+                      "text": "exchange",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "eintauschen"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "change one's money into euros",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "sein Geld in Euro umtauschen"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.013",
+                  "translations": [
+                    {
+                      "language": "de",
+                      "notes": [
+                        {
+                          "text": "in currency or denomination",
+                          "type": "indicator"
+                        }
+                      ],
+                      "text": "wechseln"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "grammaticalFeatures": [
+                {
+                  "text": "Intransitive",
+                  "type": "Subcategorization"
+                },
+                {
+                  "text": "Present",
+                  "type": "Tense"
+                }
+              ],
+              "homographNumber": "002",
+              "senses": [
+                {
+                  "examples": [
+                    {
+                      "text": "wait for the lights to change",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "warten, dass es grün/rot wird"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "she'll never change!",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "sie wird sich nie ändern!"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "conditions changed for the worse",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "die Lage verschlechterte sich"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "has she changed?",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "notes": [
+                            {
+                              "text": "for the better also",
+                              "type": "indicator"
+                            }
+                          ],
+                          "text": "hat sie sich geändert?"
+                        },
+                        {
+                          "language": "de",
+                          "text": "hat sie sich verändert?"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change for the better",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "sich verbessern"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.015",
+                  "notes": [
+                    {
+                      "text": "alter",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "sich ändern"
+                    },
+                    {
+                      "language": "de",
+                      "text": "sich verändern"
+                    },
+                    {
+                      "language": "de",
+                      "text": "umschlagen"
+                    },
+                    {
+                      "language": "de",
+                      "text": "sich ändern"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "the wind changes from east to west",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "der Wind dreht von Ost nach West"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Britain changed to the metric system",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "Großbritannien führte das metrische System ein"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "he changed from a prince into a frog",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "aus dem Prinzen wurde ein Frosch"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "almost overnight it seemed to change from winter to spring",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "fast über Nacht schien sich der Winter in den Frühling verwandelt zu haben"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.016",
+                  "notes": [
+                    {
+                      "text": "into something else",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "sich verwandeln"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "change with sb",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "mit jmdm. tauschen"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.017",
+                  "notes": [
+                    {
+                      "text": "exchange",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "tauschen"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "change out of/into sth",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "etw. ausziehen/anziehen"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.018",
+                  "notes": [
+                    {
+                      "text": "put on other clothes",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "sich umziehen"
+                    }
+                  ]
+                },
+                {
+                  "examples": [
+                    {
+                      "text": "where do I change?",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "wo muss ich umsteigen?"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "change at Bristol",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "in Bristol umsteigen"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "all change!",
+                      "translations": [
+                        {
+                          "language": "de",
+                          "text": "Endstation! Alles aussteigen!"
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "b-en-de0005539.019",
+                  "notes": [
+                    {
+                      "text": "take different train or bus",
+                      "type": "indicator"
+                    }
+                  ],
+                  "translations": [
+                    {
+                      "language": "de",
+                      "text": "umsteigen"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "language": "en",
+          "lexicalCategory": "Verb",
+          "text": "change"
+        }
+      ],
+      "type": "headword",
+      "word": "change"
+    }
+  ]
+}
