@@ -34,4 +34,26 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+
+
+    // butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+
+    // analytics with firebase
+    implementation 'com.google.firebase:firebase-core:11.6.2'
+
+
+
+    // vision
+    implementation 'com.google.android.gms:play-services-vision:11.6.2'
 }
+
+// required for using analytics
+// details see https://firebase.google.com/docs/android/setup
+apply plugin: 'com.google.gms.google-services'
