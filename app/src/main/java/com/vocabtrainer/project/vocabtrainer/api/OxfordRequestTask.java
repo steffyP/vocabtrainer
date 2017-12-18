@@ -1,8 +1,11 @@
 package com.vocabtrainer.project.vocabtrainer.api;
 
 import android.os.AsyncTask;
+import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.vocabtrainer.project.vocabtrainer.api.model.OxfordEntry;
 
 
@@ -16,6 +19,7 @@ import com.vocabtrainer.project.vocabtrainer.api.model.OxfordEntry;
  *
  */
 public class OxfordRequestTask extends AsyncTask<String, Void, OxfordEntry> {
+    private static final String TAG = OxfordRequestTask.class.getSimpleName();
     private final RequestCallback callback;
 
     public interface RequestCallback {
@@ -37,11 +41,15 @@ public class OxfordRequestTask extends AsyncTask<String, Void, OxfordEntry> {
         } else if (language.equals("de")) {
             result = OxfordApiRequest.searchTranslationForGermanWord(word);
         }
-        if (result != null) {
-            Gson gson = new Gson();
-            OxfordEntry entry = gson.fromJson(result, OxfordEntry.class);
-
-            return entry;
+        if (TextUtils.isEmpty(result)) {
+            try {
+                Gson gson = new Gson();
+                OxfordEntry entry = gson.fromJson(result, OxfordEntry.class);
+                return entry;
+            }catch(JsonSyntaxException jsonEx){
+                Log.e(TAG, "received string does not conform to the expected json");
+                jsonEx.printStackTrace();
+            }
         }
         return null;
     }

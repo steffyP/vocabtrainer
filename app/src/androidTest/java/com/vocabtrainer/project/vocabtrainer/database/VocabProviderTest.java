@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
-import android.util.Log;
 
 import org.junit.Test;
 

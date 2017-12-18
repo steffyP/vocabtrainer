@@ -22,6 +22,11 @@ allprojects {
         google()
         jcenter()
     }
+
+    ext {
+        androidSupportVersion = "26.1.0"
+
+    }
 }
 
 task clean(type: Delete) {
