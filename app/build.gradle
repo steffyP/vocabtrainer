@@ -20,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        buildTypes.each{
+        buildTypes.each {
             it.buildConfigField('String', 'OXFORD_API_KEY', keystoreProperties['OxfordApiKey'])
             it.buildConfigField('String', 'OXFORD_APP_ID', keystoreProperties['OxfordAppId'])
         }
@@ -48,10 +48,8 @@ dependencies {
     // gson
     implementation 'com.google.code.gson:gson:2.8.2'
 
-
     // analytics with firebase
     implementation 'com.google.firebase:firebase-core:11.6.2'
-
 
     // vision
     implementation 'com.google.android.gms:play-services-vision:11.6.2'
@@ -63,7 +61,6 @@ dependencies {
 
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-
 
 
 }

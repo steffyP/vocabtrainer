@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="com.vocabtrainer.project.vocabtrainer.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/main_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:elevation="@dimen/toolbar_elevation"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/app_name"/>
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="@string/app_name" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -28,73 +27,87 @@
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-     <android.support.v7.widget.RecyclerView
-         android:id="@+id/rv"
-         android:nestedScrollingEnabled="false"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"/>
+        <FrameLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="72dp"
+                android:nestedScrollingEnabled="false" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
 
-  <!--  <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_fab"
-        android:layout_width="@dimen/fab_size"
-        android:layout_height="@dimen/fab_size"
-        android:layout_gravity="bottom|end"
-        android:contentDescription="@string/action_add_word"
-        android:elevation="@dimen/fab_elevation"
-        android:src="@drawable/ic_add"
-        app:layout_anchor="@id/nested_scroll_view"
-        app:layout_anchorGravity="bottom|right|end"
-        app:useCompatPadding="true" />
--->
+    <!--  <android.support.design.widget.FloatingActionButton
+          android:id="@+id/add_fab"
+          android:layout_width="@dimen/fab_size"
+          android:layout_height="@dimen/fab_size"
+          android:layout_gravity="bottom|end"
+          android:contentDescription="@string/action_add_word"
+          android:elevation="@dimen/fab_elevation"
+          android:src="@drawable/ic_add"
+          app:layout_anchor="@id/nested_scroll_view"
+          app:layout_anchorGravity="bottom|right|end"
+          app:useCompatPadding="true" />
+  -->
 
     <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/menu"
+        android:id="@+id/floating_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/fab_elevation"
         app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|right|end"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        fab:menu_fab_size="normal"
-        android:elevation="@dimen/fab_elevation"
-        fab:menu_colorNormal="@color/colorAccent"
-        fab:menu_colorPressed="@color/colorAccentDark"
-        fab:menu_colorRipple="#99FFFFFF"
         fab:menu_animationDelayPerItem="50"
-        fab:menu_icon="@drawable/ic_add"
         fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimaryDark"
+        fab:menu_colorRipple="#99FFFFFF"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/ic_add"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
         fab:menu_labels_margin="0dp"
         fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
-        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
-        android:background="@android:color/transparent"
-        fab:menu_openDirection="up"
-        >
+        fab:menu_openDirection="up">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_type_word"
-            fab:fab_size="mini"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_label="@string/type_word"
-            fab:fab_colorNormal="@color/colorAccent"
-            fab:fab_colorPressed="@color/colorAccentDark"/>
+            android:onClick="openAddWordActivity"
+            fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_scan_word"
-            fab:fab_size="mini"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_label="@string/scan_word"
-            fab:fab_colorNormal="@color/colorAccent"
-            fab:fab_colorPressed="@color/colorAccentDark"/>
+            fab:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>
 </android.support.design.widget.CoordinatorLayout>

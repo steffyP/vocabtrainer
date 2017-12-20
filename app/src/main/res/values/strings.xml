@@ -3,4 +3,17 @@
     <string name="action_add_word">Add word</string>
     <string name="type_word">Type word</string>
     <string name="scan_word">Scan word</string>
+    <string name="show_words">Show Words</string>
+    <string name="start_training">Start Training</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="conversation">Simple Conversation</string>
+    <string name="shopping">Shopping</string>
+    <string name="travel">Traveling</string>
+    <string name="title_activity_add_word">AddWordActivity</string>
+    <string name="add_word">Add Word</string>
+    <string name="enter_word">Enter word</string>
+    <string name="enter_translation">Enter translation</string>
+    <string name="language_de">de</string>
+    <string name="language_en">en</string>
+    <string name="title_activity_word_explanation">WordExplanationActivity</string>
 </resources>

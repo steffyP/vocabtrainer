@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vocabtrainer.project.vocabtrainer">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -24,11 +24,29 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />
 
-        <provider android:name=".database.VocabProvider"
+        <provider
+            android:name=".database.VocabProvider"
             android:authorities="com.vocabtrainer.project.provider"
             android:exported="false" />
+
+        <activity
+            android:name=".AddWordActivity"
+            android:label="@string/title_activity_add_word"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vocabtrainer.project.vocabtrainer.MainActivity" />
+        </activity>
+        <activity
+            android:name=".WordExplanationActivity"
+            android:label="@string/title_activity_word_explanation"
+            android:parentActivityName=".AddWordActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vocabtrainer.project.vocabtrainer.AddWordActivity" />
+        </activity>
     </application>
-
-
 
 </manifest>
