@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- IMPORTANT: this must be exactly in the order that are stored in the database
+          the id of the category will be calculated using that array
+
+          see also VocabDatabaseHelper.java
+
+           #1 "('breakfast'),"
+           #2 "('simple conversation')," +
+           #3 "('shopping')," +
+           #4 "('traveling')," +
+           #5 "('other');";
+          -->
+    <string-array name="categories">
+        <item>Breakfast</item>
+        <item>Simple conversation</item>
+        <item>Shopping</item>
+        <item>Travel</item>
+        <item>Other</item>
+    </string-array>
+</resources>

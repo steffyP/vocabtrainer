@@ -27,6 +27,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     public void swapData(Cursor c){
         this.data = c;
+        notifyDataSetChanged();
     }
 
 
@@ -67,6 +68,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 return context.getString(R.string.shopping);
             case "traveling":
                 return context.getString(R.string.travel);
+            case "other":
+                return "Other";
             default:
                 return title;
         }

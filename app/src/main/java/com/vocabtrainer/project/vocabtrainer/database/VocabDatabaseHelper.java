@@ -30,7 +30,8 @@ class VocabDatabaseHelper extends SQLiteOpenHelper {
             "('breakfast')," +
             "('simple conversation')," +
             "('shopping')," +
-            "('traveling');";
+            "('traveling')," +
+            "('other');";
 
     private static final String INSERT_WORD_CAT1 = "insert into word(german, english, category) values\n" +
             "      ('Frühstück', 'breakfast', 1),\n" +

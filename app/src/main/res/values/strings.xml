@@ -16,4 +16,9 @@
     <string name="language_de">de</string>
     <string name="language_en">en</string>
     <string name="title_activity_word_explanation">WordExplanationActivity</string>
+    <string name="fill_fields">Please fill all fields.</string>
+    <string name="unsaved_changes">Unsaved changes</string>
+    <string name="changes_will_be_lost">Changes will be lost if you do not save it now.</string>
+    <string name="save_now">Save now</string>
+    <string name="discard">Discard changes</string>
 </resources>
