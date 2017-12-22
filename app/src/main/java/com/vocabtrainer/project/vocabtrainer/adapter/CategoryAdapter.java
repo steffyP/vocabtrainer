@@ -66,7 +66,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             }
         });
         final long categoryId = data.getLong(data.getColumnIndex(VocabContract.Category._ID));
-        holder.buttonShowWords.setOnClickListener(new View.OnClickListener() {
+
+        View.OnClickListener showWordsClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ListWordActivity.class);
@@ -74,7 +75,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 intent.putExtra(ListWordActivity.EXTRA_CATEGORY_NAME, localizedTitle);
                 context.startActivity(intent);
             }
-        });
+
+            ;
+        };
+        holder.buttonShowWords.setOnClickListener(showWordsClickListener);
+        holder.imageView.setOnClickListener(showWordsClickListener);
     }
 
     private String findTitleForString(String title) {

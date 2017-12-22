@@ -31,4 +31,8 @@
     <string name="deleted_entry">Deleted word.</string>
     <string name="update_word">Update Word</string>
     <string name="category">Select category:</string>
+    <string name="title_activity_oxford_definition">OxfordDefinitionActivity</string>
+    <string name="powered_by">Powered by Oxford Dictionaries</string>
+    <string name="no_entry_found">No entry found.</string>
+    <string name="check_internet">Please check your internet connection.</string>
 </resources>

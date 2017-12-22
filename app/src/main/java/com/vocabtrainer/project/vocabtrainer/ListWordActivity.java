@@ -66,6 +66,8 @@ public class ListWordActivity extends AppCompatActivity implements LoaderManager
 
     }
 
+    // TODO add menu and start training from here
+
     @Override
     protected void onResume() {
         super.onResume();

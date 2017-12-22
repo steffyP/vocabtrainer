@@ -28,8 +28,7 @@ import butterknife.ButterKnife;
 
 public class AddWordActivity extends AppCompatActivity {
 
-    public static final String INPUT_ENGLISH_WORD = "input_english_word";
-    private static final String INPUT_WORD = "input_word";
+
     public static final String EXTRA_ITEM_ID = "extra_item_id";
     public static final String EXTRA_ITEM_ENGLSH = "extra_item_english";
     public static final String EXTRA_ITEM_GERMAN = "extra_item_german";
@@ -235,7 +234,7 @@ public class AddWordActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
-                break;
+                return true;
             case R.id.delete_word:
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.delete_word));
@@ -255,9 +254,9 @@ public class AddWordActivity extends AppCompatActivity {
                     }
                 });
                 builder.show();
-                break;
+                return true;
         }
-        return true;
+        return onOptionsItemSelected(item);
     }
 
     private void deleteEntry() {
@@ -283,9 +282,9 @@ public class AddWordActivity extends AppCompatActivity {
 
     public void lookupOxfordDictionary(View view) {
         if (!TextUtils.isEmpty(inputOne.getText())) {
-            Intent intent = new Intent(this, WordExplanationActivity.class);
-            intent.putExtra(INPUT_ENGLISH_WORD, isEnglish());
-            intent.putExtra(INPUT_WORD, inputOne.getText());
+            Intent intent = new Intent(this, OxfordDefinitionActivity.class);
+            intent.putExtra(OxfordDefinitionActivity.INPUT_ENGLISH_WORD, isEnglish());
+            intent.putExtra(OxfordDefinitionActivity.INPUT_WORD, inputOne.getText());
             startActivity(intent);
         }
     }
