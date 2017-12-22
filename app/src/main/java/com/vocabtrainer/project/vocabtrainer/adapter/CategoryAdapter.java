@@ -1,6 +1,7 @@
 package com.vocabtrainer.project.vocabtrainer.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.vocabtrainer.project.vocabtrainer.ListWordActivity;
 import com.vocabtrainer.project.vocabtrainer.R;
 import com.vocabtrainer.project.vocabtrainer.database.VocabContract;
 
@@ -17,7 +19,7 @@ import com.vocabtrainer.project.vocabtrainer.database.VocabContract;
  * Created by stefanie on 20.12.17.
  */
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder>{
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     private final Context context;
     private Cursor data;
 
@@ -25,15 +27,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         this.context = context;
     }
 
-    public void swapData(Cursor c){
+    public void swapData(Cursor c) {
         this.data = c;
         notifyDataSetChanged();
     }
 
 
     @Override
-    public int getItemCount(){
-        if(data == null) return 0;
+    public int getItemCount() {
+        if (data == null) return 0;
         return data.getCount();
     }
 
@@ -53,9 +55,26 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         data.moveToPosition(position);
 
         String title = data.getString(data.getColumnIndex(VocabContract.Category.COLUMN_NAME));
-
-        holder.title.setText(findTitleForString(title));
+        final String localizedTitle = findTitleForString(title);
+        holder.title.setText(localizedTitle);
         holder.imageView.setImageDrawable(findDrawableForTitle(title));
+
+        holder.buttonStartTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        final long categoryId = data.getLong(data.getColumnIndex(VocabContract.Category._ID));
+        holder.buttonShowWords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ListWordActivity.class);
+                intent.putExtra(ListWordActivity.EXTRA_CATEGORY_ID, categoryId);
+                intent.putExtra(ListWordActivity.EXTRA_CATEGORY_NAME, localizedTitle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private String findTitleForString(String title) {
@@ -82,7 +101,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
          "('shopping')," +
          "('traveling');"
          */
-        switch(title){
+        switch (title) {
             case "breakfast":
                 return context.getResources().getDrawable(R.drawable.img_breakfast);
             case "simple conversation":
@@ -101,11 +120,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView title;
+        TextView buttonShowWords;
+        TextView buttonStartTraining;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.img_category);
             title = itemView.findViewById(R.id.tv_cat_title);
+            buttonShowWords = itemView.findViewById(R.id.show_words);
+            buttonStartTraining = itemView.findViewById(R.id.start_training);
         }
     }
 }

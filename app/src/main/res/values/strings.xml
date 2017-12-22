@@ -21,4 +21,14 @@
     <string name="changes_will_be_lost">Changes will be lost if you do not save it now.</string>
     <string name="save_now">Save now</string>
     <string name="discard">Discard changes</string>
+    <string name="title_activity_list_word">ListWordActivity</string>
+    <string name="no_words_added">No words in this category.</string>
+    <string name="inserted_word">Word inserted successfully</string>
+    <string name="delete_word">Delete Word</string>
+    <string name="delete_word_permantely">Are you sure you want to delete this word?</string>
+    <string name="delete">Delete</string>
+    <string name="no">No</string>
+    <string name="deleted_entry">Deleted word.</string>
+    <string name="update_word">Update Word</string>
+    <string name="category">Select category:</string>
 </resources>

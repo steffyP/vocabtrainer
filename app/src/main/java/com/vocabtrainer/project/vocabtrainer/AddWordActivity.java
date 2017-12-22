@@ -3,6 +3,7 @@ package com.vocabtrainer.project.vocabtrainer;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,10 +30,10 @@ public class AddWordActivity extends AppCompatActivity {
 
     public static final String INPUT_ENGLISH_WORD = "input_english_word";
     private static final String INPUT_WORD = "input_word";
-    private static final String EXTRA_ITEM_ID = "extra_item_id";
-    private static final String EXTRA_ITEM_ENGLSH = "extra_item_english";
-    private static final String EXTRA_ITEM_GERMAN = "extra_item_german";
-    private static final String EXTRA_ITEM_CATEGORY = "extra_item_category";
+    public static final String EXTRA_ITEM_ID = "extra_item_id";
+    public static final String EXTRA_ITEM_ENGLSH = "extra_item_english";
+    public static final String EXTRA_ITEM_GERMAN = "extra_item_german";
+    public static final String EXTRA_ITEM_CATEGORY = "extra_item_category";
 
 
     @BindView(R.id.toolbar)
@@ -61,7 +64,7 @@ public class AddWordActivity extends AppCompatActivity {
     private long itemId;
     private String englishWord;
     private String germanWord;
-    private int categorySaved;
+    private long categorySaved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +79,12 @@ public class AddWordActivity extends AppCompatActivity {
             itemId = getIntent().getLongExtra(EXTRA_ITEM_ID, -1);
             englishWord = getIntent().getStringExtra(EXTRA_ITEM_ENGLSH);
             germanWord = getIntent().getStringExtra(EXTRA_ITEM_GERMAN);
-            categorySaved = getIntent().getIntExtra(EXTRA_ITEM_CATEGORY, -1);
+            categorySaved = getIntent().getLongExtra(EXTRA_ITEM_CATEGORY, -1);
         } else isNew = true;
+
+        if (!isNew) {
+            getSupportActionBar().setTitle(getString(R.string.update_word));
+        }
         if (inputOne.getText().length() > 0) {
             lookup.setVisibility(View.VISIBLE);
         } else {
@@ -105,18 +112,19 @@ public class AddWordActivity extends AppCompatActivity {
             }
         });
         //  spinner.setAdapter();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.categories));
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown_item, getResources().getStringArray(R.array.categories));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
 
-        if (!TextUtils.isEmpty(germanWord)) {
-            inputTwo.setText(germanWord);
-        }
         if (!TextUtils.isEmpty(englishWord)) {
-            inputOne.setText(englishWord);
+            inputTwo.setText(englishWord);
+        }
+        if (!TextUtils.isEmpty(germanWord)) {
+            inputOne.setText(germanWord);
         }
         if (categorySaved != -1) {
-            spinner.setSelection(categorySaved - 1);
+            spinner.setSelection((int) categorySaved - 1);
         }
     }
 
@@ -141,16 +149,43 @@ public class AddWordActivity extends AppCompatActivity {
             cv.put(VocabContract.Word.COLUMN_GERMAN, german);
             cv.put(VocabContract.Word.COLUMN_CATEGORY, category);
             if (isNew) {
-                getContentResolver().insert(VocabContract.Word.buildDirUri(), cv);
+                Uri uri = getContentResolver().insert(VocabContract.Word.buildDirUri(), cv);
+                if (uri != null) {
+                    showSuccessful();
+                    resetInputFields();
+                }
             } else {
-                getContentResolver().update(VocabContract.Word.buildItemUri(itemId), cv, null, null);
+                int update = getContentResolver().update(VocabContract.Word.buildItemUri(itemId), cv, null, null);
+                if (update > 0) showSuccessful();
+                finish();
             }
         }
     }
 
+    private void resetInputFields() {
+        inputOne.setText(null);
+        inputTwo.setText(null);
+        spinner.setSelection(0);
+
+        isNew = true;
+        itemId = -1;
+        categorySaved = -1;
+        englishWord = "";
+        germanWord = "";
+
+        getSupportActionBar().setTitle(getString(R.string.add_word));
+
+    }
+
+    private void showSuccessful() {
+        Snackbar.make(mainContent, R.string.inserted_word, Snackbar.LENGTH_SHORT).show();
+    }
+
     @Override
     public void onBackPressed() {
-        if (!TextUtils.isEmpty(inputOne.getText()) || !TextUtils.isEmpty(inputTwo.getText())) {
+        if ((isNew && (!TextUtils.isEmpty(inputOne.getText()) || !TextUtils.isEmpty(inputTwo.getText())))
+                || (!isNew && textHasChanged())) {
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.unsaved_changes));
             builder.setMessage(getString(R.string.changes_will_be_lost));
@@ -168,8 +203,31 @@ public class AddWordActivity extends AppCompatActivity {
                 }
             });
             builder.show();
+
         } else
             super.onBackPressed();
+    }
+
+    private boolean textHasChanged() {
+        if (isEnglish()) {
+            if (!inputOne.getText().toString().equals(englishWord)) return true;
+            if (!inputTwo.getText().toString().equals(germanWord)) return true;
+        } else {
+            if (!inputOne.getText().toString().equals(germanWord)) return true;
+            if (!inputTwo.getText().toString().equals(englishWord)) return true;
+        }
+        if(spinner.getSelectedItemPosition() != (int) categorySaved -1 ) return true;
+
+        return false;
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!isNew) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.add_word, menu);
+        }
+        return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override
@@ -178,8 +236,35 @@ public class AddWordActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 break;
+            case R.id.delete_word:
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.delete_word));
+                builder.setMessage(getString(R.string.delete_word_permantely));
+
+                builder.setPositiveButton(getString(R.string.delete), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteEntry();
+                        resetInputFields();
+                    }
+                });
+                builder.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
+                break;
         }
         return true;
+    }
+
+    private void deleteEntry() {
+        int i = getContentResolver().delete(VocabContract.Word.buildItemUri(itemId), null, null);
+        if (i > 0) {
+            Snackbar.make(mainContent, R.string.deleted_entry, Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     public void swapLanguage(View view) {
@@ -193,7 +278,7 @@ public class AddWordActivity extends AppCompatActivity {
     }
 
     private boolean isEnglish() {
-        return inputOne.getText().equals(getString(R.string.language_en));
+        return languageOne.getText().equals(getString(R.string.language_en));
     }
 
     public void lookupOxfordDictionary(View view) {

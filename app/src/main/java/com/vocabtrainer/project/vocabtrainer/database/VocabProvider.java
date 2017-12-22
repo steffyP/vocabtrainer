@@ -11,7 +11,6 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 /**
  * Created by steffy on 08/12/2017.
@@ -28,10 +27,11 @@ public class VocabProvider extends ContentProvider {
     private static final int CATEGORIES = 2000;
     private static final int CATEGORY_FOR_ID = 2001;
     private static final String[] projectionIn = {VocabContract.Word.TABLE_NAME + "." + VocabContract.Word._ID + " as " + VocabContract.Word._ID,
-                                                VocabContract.Category.TABLE_NAME + "." + VocabContract.Category._ID,
-                                                VocabContract.Word.COLUMN_GERMAN,
-                                                VocabContract.Word.COLUMN_ENGLISH,
-                                                VocabContract.Category.COLUMN_NAME};
+            VocabContract.Category.TABLE_NAME + "." + VocabContract.Category._ID + " as categoryId",
+            VocabContract.Word.COLUMN_GERMAN,
+            VocabContract.Word.COLUMN_ENGLISH,
+            VocabContract.Category.COLUMN_NAME};
+
     static {
 
         sUriMatcher.addURI(VocabContract.CONTENT_AUTHORITY, VocabContract.Word.PATH, WORDS);
@@ -72,9 +72,9 @@ public class VocabProvider extends ContentProvider {
             case WORDS:
                 // will include the category, so we need to merge this one:
                 builder.setTables(VocabContract.Word.TABLE_NAME + " LEFT OUTER JOIN " +
-                                VocabContract.Category.TABLE_NAME + " ON ( " +
-                                VocabContract.Word.COLUMN_CATEGORY + "=" + VocabContract.Category.TABLE_NAME + "." + VocabContract.Category._ID
-                                 +")");
+                        VocabContract.Category.TABLE_NAME + " ON ( " +
+                        VocabContract.Word.COLUMN_CATEGORY + "=" + VocabContract.Category.TABLE_NAME + "." + VocabContract.Category._ID
+                        + ")");
 
                 returnCursor = builder.query(
                         db,
@@ -105,21 +105,21 @@ public class VocabProvider extends ContentProvider {
                 // will include the category, so we need to merge this one:
                 builder.setTables(VocabContract.Word.TABLE_NAME + " JOIN " +
                         VocabContract.Category.TABLE_NAME + " ON ( " +
-                        VocabContract.Word.COLUMN_CATEGORY + "=" + VocabContract.Category.TABLE_NAME + "." +VocabContract.Category._ID
-                        +")");
+                        VocabContract.Word.COLUMN_CATEGORY + "=" + VocabContract.Category.TABLE_NAME + "." + VocabContract.Category._ID
+                        + ")");
 
-                if(selection == null){
+                if (selection == null) {
                     selection = "";
                 } else {
                     selection += " AND ";
                 }
                 selection += VocabContract.Category.TABLE_NAME + "." + VocabContract.Category._ID + " = ?";
 
-                if(selectionArgs == null){
+                if (selectionArgs == null) {
                     selectionArgs = new String[]{uri.getLastPathSegment()};
                 } else {
-                    String [] selectionArgsTmp = new String[selectionArgs.length + 1];
-                    for (int i = 0; i < selectionArgs.length; i++){
+                    String[] selectionArgsTmp = new String[selectionArgs.length + 1];
+                    for (int i = 0; i < selectionArgs.length; i++) {
                         selectionArgsTmp[i] = selectionArgs[i];
                     }
                     selectionArgsTmp[selectionArgs.length] = uri.getLastPathSegment();
@@ -164,7 +164,7 @@ public class VocabProvider extends ContentProvider {
         long insertedId;
         switch (sUriMatcher.match(uri)) {
             case WORDS:
-                insertedId =  db.insert(
+                insertedId = db.insert(
                         VocabContract.Word.TABLE_NAME,
                         null,
                         values
@@ -173,7 +173,7 @@ public class VocabProvider extends ContentProvider {
                 break;
 
             case CATEGORIES:
-                insertedId =  db.insert(
+                insertedId = db.insert(
                         VocabContract.Category.TABLE_NAME,
                         null,
                         values
@@ -185,7 +185,7 @@ public class VocabProvider extends ContentProvider {
         }
 
         Context context = getContext();
-        if (context != null){
+        if (context != null) {
             context.getContentResolver().notifyChange(uri, null);
         }
 
@@ -202,16 +202,16 @@ public class VocabProvider extends ContentProvider {
             case WORD_FOR_ID:
                 rowsDeleted = db.delete(
                         VocabContract.Word.TABLE_NAME,
-                        "_ID = ?",
+                        "_id = ?",
                         new String[]{uri.getLastPathSegment()}
-                        );
+                );
 
                 break;
 
             case CATEGORY_FOR_ID:
                 rowsDeleted = db.delete(
                         VocabContract.Category.TABLE_NAME,
-                        "_ID = ?",
+                        "_id = ?",
                         new String[]{uri.getLastPathSegment()}
                 );
                 break;
@@ -221,7 +221,7 @@ public class VocabProvider extends ContentProvider {
 
         if (rowsDeleted != 0) {
             Context context = getContext();
-            if (context != null){
+            if (context != null) {
                 context.getContentResolver().notifyChange(uri, null);
             }
         }
@@ -260,7 +260,7 @@ public class VocabProvider extends ContentProvider {
 
         if (rowsUpdated != 0) {
             Context context = getContext();
-            if (context != null){
+            if (context != null) {
                 context.getContentResolver().notifyChange(uri, null);
             }
         }

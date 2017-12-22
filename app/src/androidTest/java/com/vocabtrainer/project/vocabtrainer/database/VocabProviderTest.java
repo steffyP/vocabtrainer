@@ -53,11 +53,25 @@ public class VocabProviderTest extends ProviderTestCase2<VocabProvider> {
     }
 
     @Test
+    public void testPreFilledContentCategoryWords(){
+        Cursor cursor = mMockResolver.query(VocabContract.Category.buildItemUri(1), null, null, null, null);
+
+        assertNotNull(cursor);
+        assertEquals(18, cursor.getCount());
+
+        cursor.moveToFirst();
+        assertEquals(5, cursor.getColumnNames().length);
+
+
+
+    }
+
+    @Test
     public void testPreFilledContentCategories(){
         Cursor cursor = mMockResolver.query(VocabContract.Category.buildDirUri(), null, null, null, null);
 
         assertNotNull(cursor);
-        assertEquals(4, cursor.getCount());
+        assertEquals(5, cursor.getCount());
 
         cursor = mMockResolver.query(VocabContract.Category.buildItemUri(1), null, null, null, null);
 
@@ -76,7 +90,7 @@ public class VocabProviderTest extends ProviderTestCase2<VocabProvider> {
         Cursor cursor = mMockResolver.query(VocabContract.Category.buildDirUri(), null, null, null, null);
 
         assertNotNull(cursor);
-        assertEquals(5, cursor.getCount());
+        assertEquals(6, cursor.getCount());
 
 
     }

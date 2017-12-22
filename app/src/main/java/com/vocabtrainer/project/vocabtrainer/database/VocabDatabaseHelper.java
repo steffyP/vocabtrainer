@@ -17,11 +17,11 @@ class VocabDatabaseHelper extends SQLiteOpenHelper {
     private final Context context;
 
     private static final String CREATE_CATEGORY = "create table category(" +
-            "_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "name TEXT NOT NULL);";
 
     private static final String CREATE_WORD = "create table word(" +
-            "_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "german TEXT NOT NULL, english TEXT NOT NULL, " +
             "category INTEGER, " +
             "FOREIGN KEY(category) REFERENCES category(_id));";

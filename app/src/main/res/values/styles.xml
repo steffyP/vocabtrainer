@@ -39,4 +39,14 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="wordlist">
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+
+
+    </style>
+
 </resources>

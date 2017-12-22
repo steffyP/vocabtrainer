@@ -47,6 +47,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.vocabtrainer.project.vocabtrainer.AddWordActivity" />
         </activity>
+        <activity
+            android:name=".ListWordActivity"
+            android:label="@string/title_activity_list_word"
+            android:parentActivityName=".MainActivity"
+
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vocabtrainer.project.vocabtrainer.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

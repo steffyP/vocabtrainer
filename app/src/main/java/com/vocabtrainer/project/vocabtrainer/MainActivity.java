@@ -12,6 +12,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.TouchDelegate;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ProgressBar;
@@ -64,29 +65,47 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         floatingMenu.setOnMenuToggleListener(this);
 
-        nestedScrollView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (floatingMenu.isOpened()) {
-                    setBackgroundInactive(false);
-                }
-            }
-        });
+
 
         // this is not working for the coordinatorlayout floatingMenu.setClosedOnTouchOutside(true);
 
         // TODO nice to have: close menu when clicking in background
+        recyclerView.addOnItemTouchListener( new RecyclerView.OnItemTouchListener(){
+
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                if (floatingMenu.isOpened()) {
+                    Log.d(TAG, "closing floating menu");
+                    floatingMenu.close(false);
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+
+        // this is required for the margin on the bottom of the view
         nestedScrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(floatingMenu.isOpened()){
+                if (floatingMenu.isOpened()) {
                     Log.d(TAG, "closing floating menu");
-                    floatingMenu.close(true);
+                    floatingMenu.close(false);
                     return true;
                 }
                 return false;
             }
         });
+
     }
 
     @Override
@@ -121,7 +140,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         alphaAnimation.setDuration(ANIMATION_DURATION);
         alphaAnimation.setFillAfter(true);
         mainContent.startAnimation(alphaAnimation);
-
 
     }
 

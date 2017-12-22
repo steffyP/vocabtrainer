@@ -101,9 +101,18 @@
             android:text="@string/language_en"/>
     </LinearLayout>
 
-    <Spinner
+    <TextView
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="48dp"
+
+        android:text="@string/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:layout_marginTop="8dp"
         android:layout_marginRight="48dp"
+        android:layout_marginLeft="4dp"
+        android:spinnerMode="dropdown"
         android:id="@+id/drop_down"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></Spinner>
