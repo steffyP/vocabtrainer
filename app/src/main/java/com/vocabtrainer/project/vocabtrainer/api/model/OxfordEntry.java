@@ -16,4 +16,14 @@ public class OxfordEntry {
     public List<Result> getResults() {
         return results;
     }
+
+    public String toString(){
+        String res = "";
+        if(results != null){
+            for(Result r : results){
+                res += r.toString() + "\n";
+            }
+        }
+        return  res;
+    }
 }

@@ -17,4 +17,16 @@ public class Example {
     public List<Translation> getTranslations() {
         return translations;
     }
+
+    public String toString(){
+        String res = "";
+        res += "text: " + text;
+        res += "\ntranslations:\n";
+        if(translations != null){
+            for(Translation t : translations){
+                res += t.toString()+ "\n";
+            }
+        }
+        return res;
+    }
 }

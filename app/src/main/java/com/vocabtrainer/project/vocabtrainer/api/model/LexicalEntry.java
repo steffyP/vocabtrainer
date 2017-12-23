@@ -28,4 +28,18 @@ public class LexicalEntry {
     public List<Entry> getEntries() {
         return entries;
     }
+
+    public String toString(){
+        String res = "language: " + language + "\n";
+        res += "category: " + lexicalCategory+ "\n";
+        res += "text: " + text + "\n";
+        res += "entries:\n";
+
+        if(entries != null){
+            for(Entry e : entries){
+                res += e.toString()+ "\n";
+            }
+        }
+        return res;
+    }
 }

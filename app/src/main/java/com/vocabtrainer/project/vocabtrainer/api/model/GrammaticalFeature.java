@@ -15,4 +15,8 @@ public class GrammaticalFeature {
     public String getType() {
         return type;
     }
+
+    public String toString(){
+        return "text: " + text + "\ntype: " + type;
+    }
 }

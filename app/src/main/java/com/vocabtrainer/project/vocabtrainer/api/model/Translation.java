@@ -23,4 +23,17 @@ public class Translation {
     public List<Note> getNotes() {
         return notes;
     }
+
+    public String toString(){
+        String res = "";
+        res += "language: " + language;
+        res += "text: " + text;
+
+        if(notes != null){
+            for(Note n : notes){
+                res += n.toString()+ "\n";
+            }
+        }
+        return res;
+    }
 }

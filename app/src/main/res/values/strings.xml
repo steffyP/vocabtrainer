@@ -36,4 +36,10 @@
     <string name="no_entry_found">No entry found.</string>
     <string name="check_internet">Please check your internet connection.</string>
     <string name="examples">Examples</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="search">Search</string>
+    <string name="translation">Translation</string>
+    <string name="enter_german_word">Enter German word</string>
+    <string name="enter_english_word">Enter English word</string>
+    <string name="questionmark">\?</string>
 </resources>

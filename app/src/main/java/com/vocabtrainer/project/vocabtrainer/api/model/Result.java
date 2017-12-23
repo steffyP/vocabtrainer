@@ -33,4 +33,21 @@ public class Result {
     public String getType() {
         return type;
     }
+
+    public String toString(){
+        String res = "";
+
+        res += "id: " + id + "\n";
+        res += "language: " + language + "\n";
+        res += "word: " + word + "\n";
+        res += "type: " + type + "\n";
+        res += "lexicalEntries: " + "\n";
+
+        if(lexicalEntries != null){
+            for(LexicalEntry e : lexicalEntries){
+                res += e.toString() + "\n";
+            }
+        }
+        return res;
+    }
 }

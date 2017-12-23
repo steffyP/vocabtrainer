@@ -19,4 +19,21 @@ public class Entry {
     public List<Sense> getSenses() {
         return senses;
     }
+
+    public String toString() {
+        String res = "senses:\n";
+        if (senses != null) {
+            for (Sense s : senses) {
+                res += s.toString();
+            }
+        }
+
+        res += "\ngrammaticalFeatures:\n";
+        if (grammaticalFeatures != null) {
+            for (GrammaticalFeature g : grammaticalFeatures) {
+                res += g.toString()+ "\n";
+            }
+        }
+        return res;
+    }
 }

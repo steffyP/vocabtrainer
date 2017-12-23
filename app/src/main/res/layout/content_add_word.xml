@@ -1,65 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_margin="16dp"
-    android:id="@+id/main_content">
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:id="@+id/input_one"
-            android:hint="@string/enter_word"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/language_one"
-            style="@style/language"
-            android:onClick="swapLanguage"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:text="@string/language_de"/>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="24dp"
-        >
-        <View
+        android:orientation="horizontal">
+
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="4"
-            />
-        <ImageView
-            android:src="@drawable/ic_swap"
+            android:layout_height="wrap_content"
+            android:layout_weight="4">
+
+
+            <EditText
+                android:id="@+id/input_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_german_word" />
+
+            <TextView
+                android:id="@+id/lookup_word_de"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/input_one"
+                android:layout_alignParentRight="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="lookupOxfordDictionaryDe"
+                android:padding="8dp"
+                android:text="@string/questionmark"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/language_one"
+            style="@style/language"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/swap"
-            android:onClick="swapLanguage"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            />
+            android:onClick="swapLanguage"
+            android:text="@string/language_de" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="4" />
+
+        <ImageView
+            android:id="@+id/swap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="swapLanguage"
+            android:src="@drawable/ic_swap" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -70,51 +90,52 @@
                 android:id="@+id/input_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_translation" />
+                android:hint="@string/enter_english_word" />
 
             <TextView
-                android:id="@+id/lookup_word"
+                android:id="@+id/lookup_word_en"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/input_two"
                 android:layout_alignParentRight="true"
-                android:padding="8dp"
-                android:text="\?"
-                android:textColor="@color/colorAccent"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:onClick="lookupOxfordDictionary"/>
+                android:onClick="lookupOxfordDictionaryEn"
+                android:padding="8dp"
+                android:text="@string/questionmark"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/language_two"
+            style="@style/language"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/language_two"
-            style="@style/language"
-            android:onClick="swapLanguage"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:text="@string/language_en"/>
+            android:onClick="swapLanguage"
+            android:text="@string/language_en" />
     </LinearLayout>
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
         android:layout_marginLeft="4dp"
         android:layout_marginTop="48dp"
+        android:text="@string/category" />
 
-        android:text="@string/category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <Spinner
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginLeft="4dp"
-        android:spinnerMode="dropdown"
         android:id="@+id/drop_down"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="8dp"
+        android:spinnerMode="dropdown"></Spinner>
 
 </LinearLayout>

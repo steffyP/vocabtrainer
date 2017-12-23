@@ -42,10 +42,10 @@ public class AddWordActivity extends AppCompatActivity {
     Spinner spinner;
 
     @BindView(R.id.input_one)
-    EditText inputOne;
+    EditText inputGerman;
 
     @BindView(R.id.input_two)
-    EditText inputTwo;
+    EditText inputEnglish;
 
     @BindView(R.id.language_one)
     TextView languageOne;
@@ -53,8 +53,11 @@ public class AddWordActivity extends AppCompatActivity {
     @BindView(R.id.language_two)
     TextView languageTwo;
 
-    @BindView(R.id.lookup_word)
-    View lookup;
+    @BindView(R.id.lookup_word_de)
+    View lookupDe;
+
+    @BindView(R.id.lookup_word_en)
+    View lookupEn;
 
     @BindView(R.id.main_content)
     View mainContent;
@@ -84,13 +87,42 @@ public class AddWordActivity extends AppCompatActivity {
         if (!isNew) {
             getSupportActionBar().setTitle(getString(R.string.update_word));
         }
-        if (inputOne.getText().length() > 0) {
-            lookup.setVisibility(View.VISIBLE);
-        } else {
-            lookup.setVisibility(View.GONE);
+
+
+        //  spinner.setAdapter();
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown_item, getResources().getStringArray(R.array.categories));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+
+        if (!TextUtils.isEmpty(englishWord)) {
+            inputEnglish.setText(englishWord);
+        }
+        if (!TextUtils.isEmpty(germanWord)) {
+            inputGerman.setText(germanWord);
+        }
+        if (categorySaved != -1) {
+            spinner.setSelection((int) categorySaved - 1);
         }
 
-        inputOne.addTextChangedListener(new TextWatcher() {
+        addLookupLogic();
+
+    }
+
+    private void addLookupLogic() {
+        if (inputGerman.getText().length() > 0) {
+            lookupDe.setVisibility(View.VISIBLE);
+        } else {
+            lookupDe.setVisibility(View.GONE);
+        }
+
+        if(inputEnglish.getText().length() > 0){
+            lookupEn.setVisibility(View.VISIBLE);
+        } else {
+            lookupEn.setVisibility(View.GONE);
+        }
+
+        inputGerman.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -104,42 +136,45 @@ public class AddWordActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() > 0) {
-                    lookup.setVisibility(View.VISIBLE);
+                    lookupDe.setVisibility(View.VISIBLE);
                 } else {
-                    lookup.setVisibility(View.GONE);
+                    lookupDe.setVisibility(View.GONE);
                 }
             }
         });
-        //  spinner.setAdapter();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown_item, getResources().getStringArray(R.array.categories));
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
 
+        inputEnglish.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        if (!TextUtils.isEmpty(englishWord)) {
-            inputTwo.setText(englishWord);
-        }
-        if (!TextUtils.isEmpty(germanWord)) {
-            inputOne.setText(germanWord);
-        }
-        if (categorySaved != -1) {
-            spinner.setSelection((int) categorySaved - 1);
-        }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0) {
+                    lookupEn.setVisibility(View.VISIBLE);
+                } else {
+                    lookupEn.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     public void saveEntry(View view) {
-        if (TextUtils.isEmpty(inputOne.getText()) || TextUtils.isEmpty(inputTwo.getText())) {
+        if (TextUtils.isEmpty(inputGerman.getText()) || TextUtils.isEmpty(inputEnglish.getText())) {
             Snackbar.make(mainContent, getString(R.string.fill_fields), Snackbar.LENGTH_SHORT).show();
         } else {
             String german;
             String english;
-            if (isEnglish()) {
-                english = inputOne.getText().toString().trim();
-                german = inputTwo.getText().toString().trim();
-            } else {
-                german = inputOne.getText().toString().trim();
-                english = inputTwo.getText().toString().trim();
-            }
+
+            english = inputGerman.getText().toString().trim();
+            german = inputEnglish.getText().toString().trim();
+
             int category = spinner.getSelectedItemPosition() + 1;
 
             ContentValues cv = new ContentValues();
@@ -161,8 +196,8 @@ public class AddWordActivity extends AppCompatActivity {
     }
 
     private void resetInputFields() {
-        inputOne.setText(null);
-        inputTwo.setText(null);
+        inputGerman.setText(null);
+        inputEnglish.setText(null);
         spinner.setSelection(0);
 
         isNew = true;
@@ -181,7 +216,7 @@ public class AddWordActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if ((isNew && (!TextUtils.isEmpty(inputOne.getText()) || !TextUtils.isEmpty(inputTwo.getText())))
+        if ((isNew && (!TextUtils.isEmpty(inputGerman.getText()) || !TextUtils.isEmpty(inputEnglish.getText())))
                 || (!isNew && textHasChanged())) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -207,14 +242,11 @@ public class AddWordActivity extends AppCompatActivity {
     }
 
     private boolean textHasChanged() {
-        if (isEnglish()) {
-            if (!inputOne.getText().toString().equals(englishWord)) return true;
-            if (!inputTwo.getText().toString().equals(germanWord)) return true;
-        } else {
-            if (!inputOne.getText().toString().equals(germanWord)) return true;
-            if (!inputTwo.getText().toString().equals(englishWord)) return true;
-        }
-        if(spinner.getSelectedItemPosition() != (int) categorySaved -1 ) return true;
+
+        if (!inputGerman.getText().toString().equals(germanWord)) return true;
+        if (!inputEnglish.getText().toString().equals(englishWord)) return true;
+
+        if (spinner.getSelectedItemPosition() != (int) categorySaved - 1) return true;
 
         return false;
     }
@@ -266,25 +298,29 @@ public class AddWordActivity extends AppCompatActivity {
     }
 
     public void swapLanguage(View view) {
-        if (isEnglish()) {
-            languageTwo.setText(getString(R.string.language_en));
-            languageOne.setText(getString(R.string.language_de));
-        } else {
-            languageOne.setText(getString(R.string.language_en));
-            languageTwo.setText(getString(R.string.language_de));
+        String german = inputGerman.getText().toString();
+        String english = inputEnglish.getText().toString();
+        inputGerman.setText(english);
+        inputEnglish.setText(german);
+    }
+
+
+    public void lookupOxfordDictionaryDe(View view) {
+        if (!TextUtils.isEmpty(inputGerman.getText())) {
+           startOxfordApi(false, inputGerman.getText().toString());
         }
     }
 
-    private boolean isEnglish() {
-        return languageOne.getText().equals(getString(R.string.language_en));
+    private void startOxfordApi(boolean isEnglish, String query){
+        Intent intent = new Intent(this, OxfordDefinitionActivity.class);
+        intent.putExtra(OxfordDefinitionActivity.INPUT_ENGLISH_WORD, isEnglish);
+        intent.putExtra(OxfordDefinitionActivity.INPUT_WORD, query);
+        startActivity(intent);
     }
 
-    public void lookupOxfordDictionary(View view) {
-        if (!TextUtils.isEmpty(inputOne.getText())) {
-            Intent intent = new Intent(this, OxfordDefinitionActivity.class);
-            intent.putExtra(OxfordDefinitionActivity.INPUT_ENGLISH_WORD, isEnglish());
-            intent.putExtra(OxfordDefinitionActivity.INPUT_WORD, inputOne.getText().toString());
-            startActivity(intent);
+    public void lookupOxfordDictionaryEn(View view){
+        if (!TextUtils.isEmpty(inputEnglish.getText())) {
+            startOxfordApi(true, inputEnglish.getText().toString());
         }
     }
 }
