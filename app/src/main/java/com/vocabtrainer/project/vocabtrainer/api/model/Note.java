@@ -16,4 +16,11 @@ public class Note {
     public String getType() {
         return type;
     }
+
+    public String toString(){
+        String res = "";
+        res += text != null ? text : "";
+        res += type != null ? " ("+type+")" : "";
+        return  res;
+    }
 }

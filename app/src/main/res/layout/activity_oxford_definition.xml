@@ -34,8 +34,10 @@
     <TextView
         app:layout_anchorGravity="bottom|center"
         app:layout_anchor="@id/nested_scroll_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/powered_by"/>
+        android:padding="4dp"
+        android:text="@string/powered_by"
+        android:background="@color/colorPrimaryTransparent"/>
 </android.support.design.widget.CoordinatorLayout>

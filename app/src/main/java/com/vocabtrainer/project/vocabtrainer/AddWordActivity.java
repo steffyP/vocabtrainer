@@ -128,7 +128,6 @@ public class AddWordActivity extends AppCompatActivity {
     }
 
     public void saveEntry(View view) {
-        // TODO
         if (TextUtils.isEmpty(inputOne.getText()) || TextUtils.isEmpty(inputTwo.getText())) {
             Snackbar.make(mainContent, getString(R.string.fill_fields), Snackbar.LENGTH_SHORT).show();
         } else {
@@ -284,7 +283,7 @@ public class AddWordActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(inputOne.getText())) {
             Intent intent = new Intent(this, OxfordDefinitionActivity.class);
             intent.putExtra(OxfordDefinitionActivity.INPUT_ENGLISH_WORD, isEnglish());
-            intent.putExtra(OxfordDefinitionActivity.INPUT_WORD, inputOne.getText());
+            intent.putExtra(OxfordDefinitionActivity.INPUT_WORD, inputOne.getText().toString());
             startActivity(intent);
         }
     }

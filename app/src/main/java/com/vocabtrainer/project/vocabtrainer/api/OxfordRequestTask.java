@@ -41,7 +41,7 @@ public class OxfordRequestTask extends AsyncTask<String, Void, OxfordEntry> {
         } else if (language.equals("de")) {
             result = OxfordApiRequest.searchTranslationForGermanWord(word);
         }
-        if (TextUtils.isEmpty(result)) {
+        if (! TextUtils.isEmpty(result)) {
             try {
                 Gson gson = new Gson();
                 OxfordEntry entry = gson.fromJson(result, OxfordEntry.class);

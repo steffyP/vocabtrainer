@@ -6,4 +6,5 @@
     <color name="black_transparent">#88000000</color>
     <color name="white_transparent">#44ffffff</color>
     <color name="colorPrimaryLight">#D1C4E9</color>
+    <color name="colorPrimaryTransparent">#33673AB7</color>
 </resources>

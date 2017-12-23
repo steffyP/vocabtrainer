@@ -27,4 +27,33 @@ public class Sense {
     public List<Note> getNotes() {
         return notes;
     }
+
+
+    public String toHtmlString() {
+        String res = "";
+        if (translations != null) {
+            for (Translation t : translations) {
+                res += "<b>" + t.getText() + " (" + t.getLanguage() + ")</b><br/>";
+                if (notes != null) {
+                    for (Note n : notes) {
+                        res += n.toString() + "<p/>";
+                    }
+                }
+            }
+        }
+        res += "<p/>";
+
+        if (examples != null) {
+            for (Example e : examples) {
+                res += e.getText() + ":<br/>";
+                if (e.getTranslations() != null) {
+                    for (Translation translation : e.getTranslations()) {
+                        res += translation.getText() + "<p/>";
+                    }
+                }
+                res += "<br/>";
+            }
+        }
+        return res;
+    }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,8 +16,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.vocabtrainer.project.vocabtrainer.adapter.ResultAdapter;
 import com.vocabtrainer.project.vocabtrainer.api.OxfordRequestTask;
+import com.vocabtrainer.project.vocabtrainer.api.model.Entry;
 import com.vocabtrainer.project.vocabtrainer.api.model.OxfordEntry;
+import com.vocabtrainer.project.vocabtrainer.api.model.Sense;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,7 +59,18 @@ public class OxfordDefinitionActivity extends AppCompatActivity implements Oxfor
         input = getIntent().getStringExtra(INPUT_WORD);
         boolean isEnglish = getIntent().getBooleanExtra(INPUT_ENGLISH_WORD, false);
 
+        if(input.contains(",")){
+            input = input.split(",")[0];
+        }
+
+        if(input.contains(" ")){
+            input = input.split(" ")[0];
+        }
+
         getSupportActionBar().setTitle(input);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         String language;
         if(isEnglish) {
             language = "en";
@@ -89,13 +104,16 @@ public class OxfordDefinitionActivity extends AppCompatActivity implements Oxfor
     @Override
     public void receive(OxfordEntry entry) {
         progressBar.setVisibility(View.GONE);
-        if(entry == null){
+        if(entry == null || entry.getResults() == null || entry.getResults().isEmpty() || entry.getResults().get(0).getLexicalEntries() == null){
             noEntryFound.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
             return;
         }
-
-        Log.d(TAG, entry.getResults().get(0).getWord());
-
+        for (Entry e : entry.getResults().get(0).getLexicalEntries().get(0).getEntries()){
+            for(Sense s : e.getSenses()){
+                Log.d(TAG, s.toString());
+            }
+        }
+        recyclerView.setAdapter(new ResultAdapter(this, entry.getResults().get(0).getLexicalEntries()));
     }
 }
