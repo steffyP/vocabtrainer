@@ -43,4 +43,5 @@
     <string name="enter_english_word">Enter English word</string>
     <string name="questionmark">\?</string>
     <string name="training">Training</string>
+    <string name="title_activity_scan">ScanActivity</string>
 </resources>

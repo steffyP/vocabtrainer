@@ -64,14 +64,11 @@ public class VocabFragment extends Fragment {
 
                 if (vocab.getText().equals(englishWord)) {
                     vocab.setText(germanWord);
-                    //vocab.setText(germanWord);
                     vocab.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 } else {
-                    rootView.animate().rotationX(0).start();
                     vocab.setText(englishWord);
                     vocab.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 }
-
             }
         });
         return rootView;

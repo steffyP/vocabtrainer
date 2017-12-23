@@ -164,4 +164,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             floatingMenu.close(false);
         }
     }
+
+    public void openScanActivity(View view) {
+        Intent intent = new Intent(this, ScanActivity.class);
+        startActivity(intent);
+    }
 }

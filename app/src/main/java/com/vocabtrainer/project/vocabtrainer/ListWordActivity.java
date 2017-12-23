@@ -1,10 +1,8 @@
 package com.vocabtrainer.project.vocabtrainer;
 
-import android.app.MediaRouteButton;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -12,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -66,7 +67,25 @@ public class ListWordActivity extends AppCompatActivity implements LoaderManager
 
     }
 
-    // TODO add menu and start training from here
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.training){
+            Intent intent = new Intent(this, TrainingActivity.class);
+            intent.putExtra(ListWordActivity.EXTRA_CATEGORY_ID, categoryId);
+            intent.putExtra(ListWordActivity.EXTRA_CATEGORY_NAME, categoryName);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.start_training, menu);
+        return true;
+    }
 
     @Override
     protected void onResume() {
@@ -85,7 +104,7 @@ public class ListWordActivity extends AppCompatActivity implements LoaderManager
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         progressBar.setVisibility(View.GONE);
 
-        if(data != null && data.getCount() > 0) {
+        if (data != null && data.getCount() > 0) {
             wordAdapter.swapData(data);
         } else {
             emptyTextView.setVisibility(View.VISIBLE);

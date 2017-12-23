@@ -107,6 +107,7 @@
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_label="@string/scan_word"
+            android:onClick="openScanActivity"
             fab:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>
