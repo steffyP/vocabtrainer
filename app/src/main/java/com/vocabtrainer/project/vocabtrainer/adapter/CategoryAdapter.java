@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.vocabtrainer.project.vocabtrainer.ListWordActivity;
 import com.vocabtrainer.project.vocabtrainer.R;
+import com.vocabtrainer.project.vocabtrainer.TrainingActivity;
 import com.vocabtrainer.project.vocabtrainer.database.VocabContract;
 
 /**
@@ -80,6 +81,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         };
         holder.buttonShowWords.setOnClickListener(showWordsClickListener);
         holder.imageView.setOnClickListener(showWordsClickListener);
+
+        holder.buttonStartTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TrainingActivity.class);
+                intent.putExtra(ListWordActivity.EXTRA_CATEGORY_ID, categoryId);
+                intent.putExtra(ListWordActivity.EXTRA_CATEGORY_NAME, localizedTitle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private String findTitleForString(String title) {
