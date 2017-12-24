@@ -140,6 +140,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="48dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
         android:spinnerMode="dropdown"></Spinner>
 
 </LinearLayout>
