@@ -31,6 +31,7 @@ import android.view.SurfaceView;
 import android.view.ViewGroup;
 
 import com.google.android.gms.common.images.Size;
+import com.google.android.gms.vision.CameraSource;
 
 import java.io.IOException;
 

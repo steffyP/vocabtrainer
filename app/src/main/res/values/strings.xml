@@ -44,4 +44,8 @@
     <string name="questionmark">\?</string>
     <string name="training">Training</string>
     <string name="title_activity_scan">ScanActivity</string>
+    <string name="found_words">Detected words:</string>
+    <string name="clear_list">Clear List</string>
+    <string name="stop_scanning">Stop</string>
+    <string name="start_scanning">Start</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.vocabtrainer.project.vocabtrainer;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,10 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -82,8 +86,11 @@ public class AddWordActivity extends AppCompatActivity {
             englishWord = getIntent().getStringExtra(EXTRA_ITEM_ENGLSH);
             germanWord = getIntent().getStringExtra(EXTRA_ITEM_GERMAN);
             categorySaved = getIntent().getLongExtra(EXTRA_ITEM_CATEGORY, -1);
-        } else isNew = true;
-
+        } else {
+            isNew = true;
+            // this maybe set if the scan word view has been used
+            germanWord = getIntent().getStringExtra(EXTRA_ITEM_GERMAN);
+        }
         if (!isNew) {
             getSupportActionBar().setTitle(getString(R.string.update_word));
         }
@@ -106,7 +113,6 @@ public class AddWordActivity extends AppCompatActivity {
         }
 
         addLookupLogic();
-
     }
 
     private void addLookupLogic() {
@@ -163,6 +169,11 @@ public class AddWordActivity extends AppCompatActivity {
                 }
             }
         });
+
+        inputEnglish.setOnEditorActionListener(new DoneOnEditorActionListener());
+        inputGerman.setOnEditorActionListener(new DoneOnEditorActionListener());
+
+
     }
 
     public void saveEntry(View view) {
@@ -172,8 +183,8 @@ public class AddWordActivity extends AppCompatActivity {
             String german;
             String english;
 
-            english = inputGerman.getText().toString().trim();
-            german = inputEnglish.getText().toString().trim();
+            german = inputGerman.getText().toString().trim();
+            english = inputEnglish.getText().toString().trim();
 
             int category = spinner.getSelectedItemPosition() + 1;
 
@@ -321,6 +332,19 @@ public class AddWordActivity extends AppCompatActivity {
     public void lookupOxfordDictionaryEn(View view){
         if (!TextUtils.isEmpty(inputEnglish.getText())) {
             startOxfordApi(true, inputEnglish.getText().toString());
+        }
+    }
+
+    class DoneOnEditorActionListener implements TextView.OnEditorActionListener {
+
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -22,7 +22,9 @@
                 android:id="@+id/input_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_german_word" />
+                android:hint="@string/enter_german_word"
+                android:inputType="text"
+                android:imeOptions="actionDone"/>
 
             <TextView
                 android:id="@+id/lookup_word_de"
@@ -90,7 +92,9 @@
                 android:id="@+id/input_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_english_word" />
+                android:hint="@string/enter_english_word"
+                android:inputType="text"
+                android:imeOptions="actionDone"/>
 
             <TextView
                 android:id="@+id/lookup_word_en"
