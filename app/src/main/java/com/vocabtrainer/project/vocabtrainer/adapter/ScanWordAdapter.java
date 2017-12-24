@@ -16,6 +16,8 @@ import com.vocabtrainer.project.vocabtrainer.database.VocabContract;
 import java.util.HashSet;
 import java.util.List;
 
+import static com.vocabtrainer.project.vocabtrainer.AddWordActivity.EXTRA_ITEM_CATEGORY;
+
 /**
  * Created by stefanie on 20.12.17.
  */
@@ -23,10 +25,12 @@ import java.util.List;
 public class ScanWordAdapter extends RecyclerView.Adapter<ScanWordAdapter.ViewHolder>{
 
     private final Context context;
+    private final int categoryId;
     private List<String> data;
 
-    public ScanWordAdapter(Context context) {
+    public ScanWordAdapter(Context context, int categoryId) {
         this.context = context;
+        this.categoryId = categoryId;
     }
 
     public void swapData(List<String> words){
@@ -66,7 +70,7 @@ public class ScanWordAdapter extends RecyclerView.Adapter<ScanWordAdapter.ViewHo
             public void onClick(View v) {
                 Intent intent = new Intent(context, AddWordActivity.class);
                 intent.putExtra(AddWordActivity.EXTRA_ITEM_GERMAN, detectedText);
-
+                intent.putExtra(EXTRA_ITEM_CATEGORY, categoryId);
                 context.startActivity(intent);
             }
         });

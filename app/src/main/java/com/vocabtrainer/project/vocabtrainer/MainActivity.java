@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, FloatingActionMenu.OnMenuToggleListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int CATEGORY_LOADER = 112233;
-    private static final int ANIMATION_DURATION = 50;
+    public static final int ANIMATION_DURATION = 50;
     private FirebaseAnalytics firebaseAnalytics;
 
     @BindView(R.id.rv)
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
+
     }
 
     @Override
@@ -144,10 +145,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
-    public void openAddWordActivity(View view) {
-        Intent intent = new Intent(this, AddWordActivity.class);
-        startActivity(intent);
-    }
+
 
     @Override
     public void onBackPressed() {
@@ -164,7 +162,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             floatingMenu.close(false);
         }
     }
-
+    public void openAddWordActivity(View view) {
+        Intent intent = new Intent(this, AddWordActivity.class);
+        startActivity(intent);
+    }
     public void openScanActivity(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);

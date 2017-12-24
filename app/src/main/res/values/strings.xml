@@ -48,4 +48,6 @@
     <string name="clear_list">Clear List</string>
     <string name="stop_scanning">Stop</string>
     <string name="start_scanning">Start</string>
+    <string name="google_api_not_available">Vision api not available.</string>
+    <string name="no_word_found_try_manual">No word found, try adding manual.</string>
 </resources>

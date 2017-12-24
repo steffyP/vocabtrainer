@@ -71,6 +71,7 @@ public class AddWordActivity extends AppCompatActivity {
     private String englishWord;
     private String germanWord;
     private long categorySaved;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,8 @@ public class AddWordActivity extends AppCompatActivity {
             isNew = true;
             // this maybe set if the scan word view has been used
             germanWord = getIntent().getStringExtra(EXTRA_ITEM_GERMAN);
+            categorySaved = getIntent().getLongExtra(EXTRA_ITEM_CATEGORY, -1);
+
         }
         if (!isNew) {
             getSupportActionBar().setTitle(getString(R.string.update_word));
@@ -217,6 +220,10 @@ public class AddWordActivity extends AppCompatActivity {
         englishWord = "";
         germanWord = "";
 
+        if(menu != null){
+           MenuItem item =  menu.findItem(R.id.delete_word);
+           if(item != null) item.setVisible(false);
+        }
         getSupportActionBar().setTitle(getString(R.string.add_word));
 
     }
@@ -266,6 +273,7 @@ public class AddWordActivity extends AppCompatActivity {
         if (!isNew) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.add_word, menu);
+            this.menu = menu;
         }
         return super.onCreateOptionsMenu(menu);
 

@@ -1,12 +1,9 @@
 package com.vocabtrainer.project.vocabtrainer.vocab;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +11,8 @@ import android.widget.TextView;
 
 import com.vocabtrainer.project.vocabtrainer.OxfordDefinitionActivity;
 import com.vocabtrainer.project.vocabtrainer.R;
+
+import java.util.Random;
 
 /**
  * Created by stefanie on 23.12.17.
@@ -24,6 +23,8 @@ public class VocabFragment extends Fragment {
 
     public static final String VOCAB_ENGLISH = "vocab_english";
     public static final String VOCAB_GERMAN = "vocab_german";
+    private static final String CARD_COLOR = "card_color";
+    private static final String CARD_COLOR_DARK = "card_color_dark";
 
 
     private TextView vocab;
@@ -33,6 +34,7 @@ public class VocabFragment extends Fragment {
 
     private View lookup;
 
+    private int color, darkColor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +48,18 @@ public class VocabFragment extends Fragment {
         vocab = rootView.findViewById(R.id.tv_vocab);
         lookup = rootView.findViewById(R.id.lookup);
 
+        if (savedInstanceState != null) {
+            color = savedInstanceState.getInt(CARD_COLOR);
+            darkColor = savedInstanceState.getInt(CARD_COLOR_DARK);
+        } else {
+            Pair<Integer, Integer> pair = getRandomColorPair();
+            color = pair.first;
+            darkColor = pair.second;
+        }
+
+        vocab.setBackgroundColor(getResources().getColor(getColor()));
         vocab.setText(englishWord);
+
 
         lookup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,14 +77,48 @@ public class VocabFragment extends Fragment {
 
                 if (vocab.getText().equals(englishWord)) {
                     vocab.setText(germanWord);
-                    vocab.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                    vocab.setBackgroundColor(getResources().getColor(getColorDark()));
                 } else {
                     vocab.setText(englishWord);
-                    vocab.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    vocab.setBackgroundColor(getResources().getColor(getColor()));
                 }
             }
         });
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(CARD_COLOR, getColor());
+        outState.putInt(CARD_COLOR_DARK, getColorDark());
+    }
+
+    private int getColor() {
+        return color;
+    }
+
+    private int getColorDark() {
+        return darkColor;
+    }
+
+    private Pair<Integer, Integer> getRandomColorPair() {
+        Random random = new Random();
+        int selected = random.nextInt(5);
+        switch (selected) {
+            case 0:
+                return new Pair<Integer, Integer>(R.color.cardColor1, R.color.cardColor1Dark);
+            case 1:
+                return new Pair<Integer, Integer>(R.color.cardColor2, R.color.cardColor2Dark);
+            case 2:
+                return new Pair<Integer, Integer>(R.color.cardColor3, R.color.cardColor3Dark);
+            case 3:
+                return new Pair<Integer, Integer>(R.color.cardColor4, R.color.cardColor4Dark);
+            case 4:
+                return new Pair<Integer, Integer>(R.color.cardColor5, R.color.cardColor5Dark);
+            default:
+                return new Pair<Integer, Integer>(R.color.colorPrimary, R.color.colorPrimaryDark);
+        }
     }
 
 

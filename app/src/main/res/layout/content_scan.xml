@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     android:orientation="vertical"
+    android:id="@+id/content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
     tools:context="com.vocabtrainer.project.vocabtrainer.ScanActivity"
     tools:showIn="@layout/activity_scan">
@@ -36,6 +37,7 @@
             android:layout_alignParentTop="true"
             android:onClick="startCamera"
             android:text="@string/start_scanning"
+            android:clickable="true"
             android:visibility="gone" />
     </RelativeLayout>
 
@@ -43,7 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp">
 
         <TextView
             style="@style/category"
@@ -57,7 +60,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:gravity="right"
             android:onClick="clearScannedWords"
