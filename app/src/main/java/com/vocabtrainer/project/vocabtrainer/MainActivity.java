@@ -12,7 +12,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.TouchDelegate;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ProgressBar;
@@ -22,6 +21,8 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.vocabtrainer.project.vocabtrainer.adapter.CategoryAdapter;
 import com.vocabtrainer.project.vocabtrainer.database.VocabContract;
 
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int CATEGORY_LOADER = 112233;
     public static final int ANIMATION_DURATION = 50;
-    private FirebaseAnalytics firebaseAnalytics;
 
     @BindView(R.id.rv)
     RecyclerView recyclerView;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, getResources().getInteger(R.integer.span_count)));
 
@@ -66,11 +66,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         floatingMenu.setOnMenuToggleListener(this);
 
 
-
         // this is not working for the coordinatorlayout floatingMenu.setClosedOnTouchOutside(true);
 
         // TODO nice to have: close menu when clicking in background
-        recyclerView.addOnItemTouchListener( new RecyclerView.OnItemTouchListener(){
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
             @Override
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
@@ -106,8 +105,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
-
     }
+
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -145,8 +144,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
-
-
     @Override
     public void onBackPressed() {
         if (floatingMenu.isOpened()) {
@@ -162,10 +159,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             floatingMenu.close(false);
         }
     }
+
     public void openAddWordActivity(View view) {
         Intent intent = new Intent(this, AddWordActivity.class);
         startActivity(intent);
     }
+
     public void openScanActivity(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);

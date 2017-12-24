@@ -201,7 +201,6 @@ public class ScanActivity extends AppCompatActivity implements WordDetector.Call
 
                     finish();
                 }
-                return;
             }
 
         }
@@ -217,7 +216,7 @@ public class ScanActivity extends AppCompatActivity implements WordDetector.Call
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    List<String> tmp = new ArrayList<String>(detectedWords);
+                    List<String> tmp = new ArrayList<>(detectedWords);
                     Collections.sort(tmp);
                     adapter.swapData(tmp);
                     if (snackbar != null) snackbar.dismiss();
@@ -229,7 +228,7 @@ public class ScanActivity extends AppCompatActivity implements WordDetector.Call
     public void clearScannedWords(View view) {
         synchronized (detectedWords) {
             detectedWords.clear();
-            adapter.swapData(new ArrayList<String>(detectedWords));
+            adapter.swapData(new ArrayList<>(detectedWords));
         }
     }
 

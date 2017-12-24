@@ -100,7 +100,7 @@ public class AddWordActivity extends AppCompatActivity {
 
 
         //  spinner.setAdapter();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown_item, getResources().getStringArray(R.array.categories));
+        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, getResources().getStringArray(R.array.categories));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 

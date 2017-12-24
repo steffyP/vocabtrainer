@@ -9,13 +9,12 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
         android:textSize="20sp"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
-        />
+        android:focusable="true" />
 
     <TextView
         android:layout_width="match_parent"

@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF9100</color>
     <color name="black_transparent">#88000000</color>
-    <color name="white_transparent">#44ffffff</color>
+    <color name="white_transparent">#66ffffff</color>
     <color name="colorPrimaryLight">#C5CAE9</color>
+
+    <color name="primaryLightTransparent">#443F51B5</color>
 
     <color name="cardColor1">#673AB7</color>
     <color name="cardColor1Dark">#512DA8</color>

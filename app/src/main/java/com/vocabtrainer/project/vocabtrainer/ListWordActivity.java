@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,8 +48,8 @@ public class ListWordActivity extends AppCompatActivity implements LoaderManager
     @BindView(R.id.empty_view)
     View emptyTextView;
 
-    @BindView(R.id.framelayout)
-    FrameLayout mainContent;
+    @BindView(R.id.main_content)
+    NestedScrollView mainContent;
 
     @BindView(R.id.floating_menu)
     FloatingActionMenu floatingMenu;

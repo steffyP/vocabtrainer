@@ -34,9 +34,10 @@
         android:layout_marginRight="16dp"
         android:background="@android:color/transparent"
         android:elevation="@dimen/fab_elevation"
-        app:layout_anchor="@id/framelayout"
+        app:layout_anchor="@id/main_content"
         app:layout_anchorGravity="bottom|right|end"
         fab:menu_animationDelayPerItem="50"
+        app:menu_labels_position="@integer/fab_menu_position"
         fab:menu_buttonSpacing="0dp"
         fab:menu_colorNormal="@color/colorPrimary"
         fab:menu_colorPressed="@color/colorPrimaryDark"
@@ -46,7 +47,8 @@
         fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
         fab:menu_labels_margin="0dp"
         fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
-        fab:menu_openDirection="up">
+        fab:menu_openDirection="up"
+        tools:targetApi="lollipop">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item"

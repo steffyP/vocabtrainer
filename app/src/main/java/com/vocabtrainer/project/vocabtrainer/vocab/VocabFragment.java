@@ -107,17 +107,17 @@ public class VocabFragment extends Fragment {
         int selected = random.nextInt(5);
         switch (selected) {
             case 0:
-                return new Pair<Integer, Integer>(R.color.cardColor1, R.color.cardColor1Dark);
+                return new Pair<>(R.color.cardColor1, R.color.cardColor1Dark);
             case 1:
-                return new Pair<Integer, Integer>(R.color.cardColor2, R.color.cardColor2Dark);
+                return new Pair<>(R.color.cardColor2, R.color.cardColor2Dark);
             case 2:
-                return new Pair<Integer, Integer>(R.color.cardColor3, R.color.cardColor3Dark);
+                return new Pair<>(R.color.cardColor3, R.color.cardColor3Dark);
             case 3:
-                return new Pair<Integer, Integer>(R.color.cardColor4, R.color.cardColor4Dark);
+                return new Pair<>(R.color.cardColor4, R.color.cardColor4Dark);
             case 4:
-                return new Pair<Integer, Integer>(R.color.cardColor5, R.color.cardColor5Dark);
+                return new Pair<>(R.color.cardColor5, R.color.cardColor5Dark);
             default:
-                return new Pair<Integer, Integer>(R.color.colorPrimary, R.color.colorPrimaryDark);
+                return new Pair<>(R.color.colorPrimary, R.color.colorPrimaryDark);
         }
     }
 

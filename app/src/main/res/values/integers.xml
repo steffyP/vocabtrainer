@@ -3,4 +3,5 @@
     <integer name="span_count">1</integer>
     <integer name="card_flip_time_full">1000</integer>
     <integer name="rotation">500</integer>
+    <integer name="fab_menu_position">0</integer>
 </resources>

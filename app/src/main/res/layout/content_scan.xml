@@ -7,7 +7,7 @@
     android:layout_margin="16dp"
     android:orientation="vertical"
     android:id="@+id/content"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.vocabtrainer.project.vocabtrainer.ScanActivity"
     tools:showIn="@layout/activity_scan">
 
@@ -38,33 +38,35 @@
             android:onClick="startCamera"
             android:text="@string/start_scanning"
             android:clickable="true"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:focusable="true" />
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="4dp">
 
         <TextView
             style="@style/category"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
             android:text="@string/found_words" />
 
         <TextView
             android:id="@+id/reset"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:clickable="true"
-            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:onClick="clearScannedWords"
-            android:text="@string/clear_list" />
-    </LinearLayout>
+            android:text="@string/clear_list"
+            android:focusable="true" />
+    </RelativeLayout>
 
 
     <android.support.v7.widget.RecyclerView

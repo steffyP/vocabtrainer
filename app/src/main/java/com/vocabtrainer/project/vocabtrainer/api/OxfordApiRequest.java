@@ -98,7 +98,7 @@ public class OxfordApiRequest {
 
     private static String readInputStreamToString(InputStream is) throws IOException {
         String result = null;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
 
         is = new BufferedInputStream(is);

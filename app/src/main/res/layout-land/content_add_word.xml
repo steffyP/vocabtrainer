@@ -9,7 +9,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -30,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/input_one"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:onClick="lookupOxfordDictionaryDe"
@@ -38,7 +39,8 @@
                 android:text="@string/questionmark"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:focusable="true" />
 
         </RelativeLayout>
 
@@ -51,7 +53,8 @@
             android:layout_margin="6dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:onClick="swapLanguage"
-            android:clickable="true">
+            android:clickable="true"
+            android:focusable="true">
         <TextView
             android:id="@+id/language_one"
             style="@style/language"
@@ -64,7 +67,8 @@
             android:id="@+id/swap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_swap_horizontal" />
+            android:src="@drawable/ic_swap_horizontal"
+            android:contentDescription="@string/swap_language"/>
 
 
         <TextView
@@ -92,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/input_two"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:onClick="lookupOxfordDictionaryEn"
@@ -100,7 +104,8 @@
                 android:text="@string/questionmark"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:focusable="true" />
 
         </RelativeLayout>
 
@@ -109,7 +114,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
         android:text="@string/category" />
 
@@ -117,9 +122,10 @@
         android:id="@+id/drop_down"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
-        android:spinnerMode="dropdown"></Spinner>
+        android:spinnerMode="dropdown"
+        android:contentDescription="@string/select_category"></Spinner>
 
 </LinearLayout>

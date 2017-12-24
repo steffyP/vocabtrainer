@@ -6,13 +6,11 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vocabtrainer.project.vocabtrainer.R;
 import com.vocabtrainer.project.vocabtrainer.api.model.Entry;
 import com.vocabtrainer.project.vocabtrainer.api.model.LexicalEntry;
-import com.vocabtrainer.project.vocabtrainer.api.model.Result;
 import com.vocabtrainer.project.vocabtrainer.api.model.Sense;
 
 import java.util.List;
@@ -21,12 +19,12 @@ import java.util.List;
  * Created by stefanie on 23.12.17.
  */
 
-public class ResultAdapter  extends RecyclerView.Adapter<ResultAdapter.ViewHolder> {
+public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder> {
 
     private Context context;
     private List<LexicalEntry> resultList;
 
-    public ResultAdapter(Context context, List<LexicalEntry> resultList){
+    public ResultAdapter(Context context, List<LexicalEntry> resultList) {
         this.context = context;
         this.resultList = resultList;
     }
@@ -45,13 +43,14 @@ public class ResultAdapter  extends RecyclerView.Adapter<ResultAdapter.ViewHolde
     public void onBindViewHolder(ViewHolder holder, int position) {
         LexicalEntry result = resultList.get(position);
 
-        holder.text.setText(result.getText()
-         +" (" + result.getLanguage() + "), " + result.getLexicalCategory());
+        String text = result.getText() + " (" + result.getLanguage() + "), " + result.getLexicalCategory();
+
+        holder.text.setText(text);
 
         String translation = "";
-        for(Entry entry : result.getEntries()){
-            for(Sense sense : entry.getSenses()) {
-               translation += sense.toHtmlString() ;
+        for (Entry entry : result.getEntries()) {
+            for (Sense sense : entry.getSenses()) {
+                translation += sense.toHtmlString();
             }
         }
         holder.translation.setText(Html.fromHtml(translation));
@@ -60,11 +59,11 @@ public class ResultAdapter  extends RecyclerView.Adapter<ResultAdapter.ViewHolde
 
     @Override
     public int getItemCount() {
-        if(resultList == null) return 0;
+        if (resultList == null) return 0;
         return resultList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView text;
 
         TextView translation;

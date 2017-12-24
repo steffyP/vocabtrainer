@@ -10,8 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/main_toolbar"
@@ -20,7 +19,8 @@
             android:elevation="@dimen/toolbar_elevation"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="@string/app_name" />
+            app:title="@string/app_name"
+            tools:targetApi="lollipop" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
+        android:focusable="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <FrameLayout
@@ -41,7 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="76dp"
-                android:nestedScrollingEnabled="false" />
+                android:nestedScrollingEnabled="false"
+                tools:targetApi="lollipop" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -77,6 +79,7 @@
         android:elevation="@dimen/fab_elevation"
         app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|right|end"
+        app:menu_labels_position="@integer/fab_menu_position"
         fab:menu_animationDelayPerItem="50"
         fab:menu_buttonSpacing="0dp"
         fab:menu_colorNormal="@color/colorPrimary"
@@ -87,28 +90,29 @@
         fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
         fab:menu_labels_margin="0dp"
         fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
-        fab:menu_openDirection="up">
+        fab:menu_openDirection="up"
+        tools:targetApi="lollipop">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="openAddWordActivity"
             android:src="@drawable/ic_type_word"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_label="@string/type_word"
-            android:onClick="openAddWordActivity"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="openScanActivity"
             android:src="@drawable/ic_scan_word"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_label="@string/scan_word"
-            android:onClick="openScanActivity"
             fab:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>

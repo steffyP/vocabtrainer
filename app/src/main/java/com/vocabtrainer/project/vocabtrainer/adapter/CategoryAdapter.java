@@ -77,7 +77,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 context.startActivity(intent);
             }
 
-            ;
         };
         holder.buttonShowWords.setOnClickListener(showWordsClickListener);
         holder.imageView.setOnClickListener(showWordsClickListener);
@@ -111,12 +110,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     private Drawable findDrawableForTitle(String title) {
-        /**
-         *  "('breakfast')," +
-         "('simple conversation')," +
-         "('shopping')," +
-         "('traveling');"
-         */
         switch (title) {
             case "breakfast":
                 return context.getResources().getDrawable(R.drawable.img_breakfast);
