@@ -24,8 +24,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_german_word"
-                android:inputType="text"
-                android:imeOptions="actionDone"/>
+                android:imeOptions="actionDone"
+                android:textAlignment="viewStart"
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/lookup_word_de"
@@ -33,8 +34,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/input_one"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:contentDescription="@string/lookup_in_oxford_dictionary"
                 android:focusable="true"
                 android:onClick="lookupOxfordDictionaryDe"
                 android:padding="8dp"
@@ -54,9 +57,9 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:focusable="true"
             android:onClick="swapLanguage"
-            android:text="@string/language_de"
-            android:focusable="true" />
+            android:text="@string/language_de" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,9 +81,9 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:contentDescription="@string/swap_language"
+            android:focusable="true"
             android:onClick="swapLanguage"
-            android:src="@drawable/ic_swap"
-            android:focusable="true" />
+            android:src="@drawable/ic_swap" />
     </LinearLayout>
 
     <LinearLayout
@@ -99,8 +102,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_english_word"
-                android:inputType="text"
-                android:imeOptions="actionDone"/>
+                android:textAlignment="viewStart"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/lookup_word_en"
@@ -110,13 +114,14 @@
                 android:layout_alignParentEnd="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:contentDescription="@string/lookup_in_oxford_dictionary"
+                android:focusable="true"
                 android:onClick="lookupOxfordDictionaryEn"
                 android:padding="8dp"
                 android:text="@string/questionmark"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:focusable="true"
                 tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
@@ -129,28 +134,29 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:focusable="true"
             android:onClick="swapLanguage"
-            android:text="@string/language_en"
-            android:focusable="true" />
+            android:text="@string/language_en" />
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
-        android:text="@string/category" />
+        android:text="@string/category"
+        android:textAlignment="viewStart" />
 
     <Spinner
         android:id="@+id/drop_down"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
-        android:spinnerMode="dropdown"></Spinner>
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="viewStart"></Spinner>
 
 </LinearLayout>

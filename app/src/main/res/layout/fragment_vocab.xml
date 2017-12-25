@@ -28,6 +28,7 @@
         android:layout_marginTop="4dp"
         android:padding="12dp"
         android:text="@string/questionmark"
+        android:contentDescription="@string/lookup_in_oxford_dictionary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

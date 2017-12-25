@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_german_word"
                 android:inputType="text"
+                android:textAlignment="viewStart"
                 android:imeOptions="actionDone"/>
 
             <TextView
@@ -81,7 +82,8 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            >
 
             <EditText
                 android:id="@+id/input_two"
@@ -89,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_english_word"
                 android:inputType="text"
+                android:textAlignment="viewStart"
                 android:imeOptions="actionDone"/>
 
             <TextView
@@ -116,16 +119,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
-        android:text="@string/category" />
+        android:text="@string/category"
+        android:textAlignment="viewStart"/>
 
     <Spinner
         android:id="@+id/drop_down"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
         android:spinnerMode="dropdown"
-        android:contentDescription="@string/select_category"></Spinner>
+        android:textAlignment="viewStart"
+        android:contentDescription="@string/select_category"
+        ></Spinner>
 
 </LinearLayout>
