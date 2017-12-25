@@ -43,6 +43,8 @@ public class VocabWidgetService extends RemoteViewsService {
         }
 
         private void loadData() {
+            if(categoryId == -1) return;
+
             if (cursor != null) {
                 cursor.close();
                 cursor = null;
@@ -114,6 +116,10 @@ public class VocabWidgetService extends RemoteViewsService {
             } else {
                 rv.setInt(R.id.line, "setBackgroundResource", R.color.white_transparent);
             }
+
+            Intent intent = new Intent();
+            rv.setOnClickFillInIntent(R.id.line, intent);
+
 
             return rv;
         }

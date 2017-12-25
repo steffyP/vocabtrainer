@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.TaskStackBuilder;
 import android.widget.RemoteViews;
 
 import com.vocabtrainer.project.vocabtrainer.ListWordActivity;
@@ -28,8 +29,7 @@ public class VocabAppWidget extends AppWidgetProvider {
 
         Intent intent = new Intent(context, VocabWidgetService.class);
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-
-        intent.setData(Uri.parse(categoryId));
+        if(categoryId != null) intent.setData(Uri.parse(categoryId));
 
         String name = "";
         String categories[] = context.getResources().getStringArray(R.array.categories);
@@ -43,13 +43,22 @@ public class VocabAppWidget extends AppWidgetProvider {
 
 
         Intent detailIntent = new Intent(context, ListWordActivity.class);
-        detailIntent.putExtra(ListWordActivity.EXTRA_CATEGORY_ID, categoryId);
+        if(categoryId != null)  detailIntent.putExtra(ListWordActivity.EXTRA_CATEGORY_ID, Long.parseLong(categoryId));
+
         detailIntent.putExtra(ListWordActivity.EXTRA_CATEGORY_NAME, name);
 
-        PendingIntent pending = PendingIntent.getActivity(context, appWidgetId, detailIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+       PendingIntent pendingIntent =  TaskStackBuilder.create(context)
+                // add all of DetailsActivity's parents to the stack,
+                // followed by DetailsActivity itself
+                .addNextIntentWithParentStack(detailIntent)
+                .getPendingIntent(appWidgetId, PendingIntent.FLAG_UPDATE_CURRENT);
+       rv.setOnClickPendingIntent(R.id.container, pendingIntent);
 
-        rv.setOnClickPendingIntent(R.id.list_view, pending);
+        PendingIntent pendingFillIntent =  TaskStackBuilder.create(context)
+                .addNextIntentWithParentStack(detailIntent)
+                .getPendingIntent(appWidgetId, PendingIntent.FLAG_UPDATE_CURRENT);
+        rv.setPendingIntentTemplate(R.id.list_view, pendingFillIntent);
+
         appWidgetManager.updateAppWidget(appWidgetId, rv);
 
     }
